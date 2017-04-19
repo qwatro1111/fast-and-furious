@@ -2,6 +2,6 @@
 New project 
 
 
-user: Drosel
-host: localhost
-pass: rl1KMwX2u32wNrHV
+user: Drosel <br>
+host: localhost <br>
+pass: rl1KMwX2u32wNrHV <br>
