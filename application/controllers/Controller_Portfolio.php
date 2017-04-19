@@ -1,0 +1,24 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of Controller_Portfolio
+ *
+ * @author web
+ */
+class Controller_Portfolio extends Controller{
+    public function __construct() {
+	parent::__construct();
+	$this->model=new Model_Portfolio;
+    }
+    
+    public function action_index() {
+	$data = $this->model->get_date();
+	$this->view->generate('portfolio_view.php', null, $data);
+    }
+}
