@@ -11,7 +11,7 @@
  *
  * @author web
  */
-class Controller_Portfolio extends Controller{
+class Controller_Films extends Controller{
     public function __construct() {
 	parent::__construct();
 	$this->model=new Model_Portfolio;
