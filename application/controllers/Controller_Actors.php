@@ -11,6 +11,6 @@
  *
  * @author web
  */
-class Controller_Actors {
+class Controller_Actors extends Controller {
     //put your code here
 }
