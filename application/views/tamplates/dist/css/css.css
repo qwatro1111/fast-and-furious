@@ -1,0 +1,6 @@
+.input_edit:hover.textArea1{
+    display: block
+}
+.input_edit:hover .edittext{
+    display: none
+}
