@@ -7,12 +7,12 @@
  */
 
 /**
- * Description of Controller_Main
+ * Description of Controller_Home
  *
  * @author web
  */
-class Controller_Main extends Controller{
+class Controller_Home extends Controller{
     public function action_index() {
-	$this->view->generate('main_view.php');
+	$this->view->generate('home_view.php');
     }
 }
