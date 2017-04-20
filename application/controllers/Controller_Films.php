@@ -7,18 +7,29 @@
  */
 
 /**
- * Description of Controller_Portfolio
+ * Description of Controller_Films
  *
  * @author web
  */
-class Controller_Films extends Controller{
+class Controller_Films extends Controller {
+
     public function __construct() {
-	parent::__construct();
-	$this->model=new Model_Portfolio;
+        parent::__construct();
+        $this->model = new Model_Films;
     }
-    
+
     public function action_index() {
-	$data = $this->model->get_date();
-	$this->view->generate('portfolio_view.php', null, $data);
+        if (isset($_REQUEST['id'])) {
+            $data = $this->model->get_date($_REQUEST['id']);
+            if (strlen($data) > 0) {
+                $this->view->generate('films_view.php', null, $data);
+            } else {
+                header('Location: /404');
+            }
+        } else {
+            $data = $this->model->get_date();
+            $this->view->generate('films_view.php', null, $data);
+        }
     }
+
 }

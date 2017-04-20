@@ -12,5 +12,30 @@
  * @author web
  */
 class Model_Actors {
-    //put your code here
+
+    private $db;
+
+    public function __construct() {
+        $this->db = new mysqli('localhost', 'Drosel', 'rl1KMwX2u32wNrHV', 'fast-and-furious');
+    }
+
+    public function get_date($a = NULL) {
+        $query = "SELECT * FROM `actors` WHERE id = ".$a.";";
+        $result = $this->db->query($query);
+        $main = '';
+        if (empty($result)) {
+            $main.= header('Location: /actors?id=1');
+        } else {
+            while($res = $result->fetch_assoc()){
+                $main .= '<div>'; 
+                $main .= '<h1>'.$res[name].'</h1><br/>'; 
+                $main .= '<img src="'.$res[photo].'" alt="'.$res[name].'" title="'.$res[name].'" width="300" style="float: left;margin: 10px 40px 40px 0;"><br/>';
+                $main .= $res[description].'<br/>'; 
+                $main .= '</div>';
+            }
+        }
+        return $main;
+    }
+
+
 }
