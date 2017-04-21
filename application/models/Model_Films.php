@@ -14,11 +14,18 @@
 class Model_Films extends Model {
 
     protected $db;
-
+/**
+ * conect to Db
+ */
     public function __construct() {
         $this->db = new mysqli(DB['host'], DB['user'], DB['passwd'], DB['db']);
     }
-
+/**
+ * 
+ * @param type $a
+ * get files films from Db 
+ * @return type
+ */
     public function get_date($a = NULL) {
         $query = "SELECT * FROM `films` WHERE id = ".$a.";";
         $result = $this->db->query($query);
