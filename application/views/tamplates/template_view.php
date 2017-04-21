@@ -1,5 +1,18 @@
 <?php
 $data = unserialize($data);
+$menu = new Menu();
+$actors = unserialize($menu->getActors());
+$linckActor = '';
+foreach ($actors as $val){
+    $val = unserialize($val);
+    $linckActor .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'">'.$val[name].'</a></li>';
+}
+$films = unserialize($menu->getFilms());
+$linckFilms = '';
+foreach ($films as $val){
+    $val = unserialize($val);
+    $linckFilms .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/films?id='.$val[id].'">'.$val[name].'</a></li>';
+}
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -76,8 +89,7 @@ $data = unserialize($data);
                                     <div class="dropdown">
                                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Films <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Action</a></li>
+                                            <?= $linckFilms;?>
                                         </ul>
                                     </div>
                                 </div>
@@ -88,8 +100,7 @@ $data = unserialize($data);
                                     <div class="dropdown">
                                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Actors <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Action</a></li>
+                                            <?= $linckActor;?>
                                         </ul>
                                     </div>
                                 </div>
@@ -151,7 +162,6 @@ $data = unserialize($data);
         </script>
 	<!-- Main JS -->
 	<script src="/js/main.js"></script>
-
 	</body>
 </html>
 
