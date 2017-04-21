@@ -12,7 +12,14 @@
  * @author web
  */
 class Controller_Home extends Controller{
+    
+    public function __construct() {
+        parent::__construct();
+        $this->model = new Model_Home();
+    }
+    
     public function action_index() {
-	$this->view->generate('home_view.php');
+        $data=$this->model->get_date();
+        $this->view->generate('home_view.php', null, $data);
     }
 }
