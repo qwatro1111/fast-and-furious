@@ -12,6 +12,9 @@
  * @author web
  */
 class Controller_404 extends Controller{
+    /**
+     * Выполняем индексное действие
+     */
     public function action_index() {
 	$this->view->generate('404_view.php', 'tamplates_404_view.php');
     }

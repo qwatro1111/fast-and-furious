@@ -5,7 +5,7 @@ $actors = unserialize($menu->getActors());
 $linckActor = '';
 foreach ($actors as $val){
     $val = unserialize($val);
-    $linckActor .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'">'.$val[name].'</a></li>';
+    $linckActor .= '<li><a class="heder_menu" href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'">'.$val[name].'</a></li>';
 }
 $films = unserialize($menu->getFilms());
 $linckFilms = '';
@@ -162,6 +162,7 @@ foreach ($films as $val){
         </script>
 	<!-- Main JS -->
 	<script src="/js/main.js"></script>
+
 	</body>
 </html>
 
