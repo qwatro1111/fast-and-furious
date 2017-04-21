@@ -1,6 +1,62 @@
 .input_edit:hover.textArea1{
     display: block
 }
-.input_edit:hover .edittext{
-    display: none
+textArea{
+    width: 300px;
+    height: 200px;
+    max-width:450px;
+    max-height:400px;
+}
+#photo_table{
+    width: 30%
+}
+#name_table{
+    width: 20%;
+}
+#description_table{
+    width: 30%;
+}
+#action_table{
+    width: 20%
+}
+#photo_box{
+    margin-left:  40px;
+    height: 200px;
+    width:200px
+}
+.editform{
+    display:inline
+}
+#form_add{
+    display:none;
+}
+#td1{
+    width: 30%
+}
+#td2{
+    width: 20%;
+}
+#td3{
+    width: 30%;
+}
+#td4{
+    width: 20%
+}
+#i_btn{
+    width: 100%
+}
+#add_form{
+    width: 300px
+}
+#td01{
+    width: 40%
+}
+#td02{
+    width: 40%
+}
+#td03{
+    width: 20%
+}
+.nameoption{
+    width: 100%;
 }
