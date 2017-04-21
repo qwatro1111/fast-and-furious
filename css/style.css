@@ -26,9 +26,17 @@ a:hover, a:focus, a:active {
   color: #bf4c03;
 }
 
+p{
+   color: #fff; 
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
-  color: #000;
+  color: #fff;
+}
+    
+h1{
+    font-size: 60px;
 }
 
 p {
