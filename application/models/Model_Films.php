@@ -11,12 +11,12 @@
  *
  * @author web
  */
-class Model_Films {
+class Model_Films extends Model {
 
-    private $db;
+    protected $db;
 
     public function __construct() {
-        $this->db = new mysqli('localhost', 'Drosel', 'rl1KMwX2u32wNrHV', 'fast-and-furious');
+        $this->db = new mysqli(DB['host'], DB['user'], DB['passwd'], DB['db']);
     }
 
     public function get_date($a = NULL) {

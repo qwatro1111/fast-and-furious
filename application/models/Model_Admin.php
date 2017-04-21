@@ -11,22 +11,158 @@
  *
  * @author web
  */
-class Model_Portfolio extends Model {
+class Model_Admin extends Model {
 
-    public function get_date() {
-	return array(
-	    array(
-		'Year' => '2012',
-		'Site' => 'http://DunkelBeer.ru',
-		'Description' => 'Промо-сайт темного пива Dunkel от немецкого производителя Löwenbraü выпускаемого в России пивоваренной компанией "CАН ИнБев".'
-	    ),
-	    array(
-		'Year' => '2012',
-		'Site' => 'http://ZopoMobile.ru',
-		'Description' => 'Русскоязычный каталог китайских телефонов компании Zopo на базе Android OS и аксессуаров к ним.'
-	    ),
-		// todo
-	);
+    protected $db;
+
+    public function __construct() {
+        $this->db = new mysqli(DB['host'], DB['user'], DB['passwd'], DB['db']);
+        $this->db->query("SET CHARSET utf8");
+    }
+
+    //get options
+    public function get_data() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function get_actors() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function get_films() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function edit_option() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function edit_film() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function edit_actor() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function delete_option() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function delete_film() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function delete_actor() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function add_option() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function add_film() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
+    }
+
+    public function add_actor() {
+        $query_options = "SELECT * FROM options;";
+        $result_options = $this->db->query($query_options);
+        if ($result_options) {
+            $options = array();
+            while ($option = $result_options->fetch_assoc()) {
+                $options[] = $option;
+            }
+            return $options;
+        }
     }
 
 }
