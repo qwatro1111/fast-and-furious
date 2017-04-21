@@ -2,8 +2,8 @@
 
 const DB = array(
     'host' => 'localhost',
-    'user' => 'root',
-    'passwd' => '',
-    'db' => 'fast-and-furious',
+    'user' => 'Drosel',
+    'passwd' => 'rl1KMwX2u32wNrHV',
+    'db' => 'fast_and_furious',
 );
 
