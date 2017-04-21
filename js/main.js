@@ -195,9 +195,9 @@
 			    	}, 500);	
 			    	
 			   }
-
+			if(!$('li a.heder_menu')){
 		    event.preventDefault();
-
+		}
 		    // return false;
 		});
 

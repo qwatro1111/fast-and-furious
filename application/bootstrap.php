@@ -1,6 +1,5 @@
 <?php
 include_once 'views/tamplates/library/Menu.php';
-
 include_once 'config.php';
 include_once 'core/uplImage.php';
 require_once 'core/Model.php';
