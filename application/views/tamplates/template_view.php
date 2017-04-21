@@ -5,13 +5,13 @@ $actors = unserialize($menu->getActors());
 $linckActor = '';
 foreach ($actors as $val){
     $val = unserialize($val);
-    $linckActor .= '<li><a class="heder_menu" href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'">'.$val[name].'</a></li>';
+    $linckActor .= '<li><a class="heder_menu" href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
 }
 $films = unserialize($menu->getFilms());
 $linckFilms = '';
 foreach ($films as $val){
     $val = unserialize($val);
-    $linckFilms .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/films?id='.$val[id].'">'.$val[name].'</a></li>';
+    $linckFilms .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/films?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
 }
 ?>
 <!DOCTYPE html>
@@ -84,7 +84,7 @@ foreach ($films as $val){
 		
 		<div class="js-sticky">
 			<div class="fh5co-main-nav">
-				<div class="container-fluid">
+				<div class="container-fluid" id="pasha-tak-skazal">
                                 <div class="fh5co-menu-1">
                                     <div class="dropdown">
                                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Films <b class="caret"></b></a>
@@ -94,7 +94,7 @@ foreach ($films as $val){
                                     </div>
                                 </div>
                                 <div class="fh5co-logo">
-                                    <a href="#" data-nav-section="home">HOME</a>
+                                    <a href="<?= 'http://'.$_SERVER[HTTP_HOST];?>" data-nav-section="home">HOME</a>
                                 </div>
                                 <div class="fh5co-menu-2">
                                     <div class="dropdown">
