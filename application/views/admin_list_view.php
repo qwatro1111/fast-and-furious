@@ -1,66 +1,76 @@
 
 <div class="container">
-
     <table class="table">
         <thead>
             <tr class="info">
                 <th>Photo</th>
-                <th>Actor</th>
+                <th>Name</th>
                 <th>Description</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr class="active">
-                <td style="width: 20%"><img style="height: 150px;width: 150px" src="#" alt="addphoto"></td>
-                <td style="width: 20%">
-                    <textarea id="textArea1" style="max-width:600px; display: none; max-height: 300px; width: 600px; height: 150px;"></textarea>
-                    <p class="edittext"> Lorem IMSUM
-                    </p>
-                </td>
-                <td style="width: 35%">
-                    IMSUMLorem IMSUMLorem IMSUMLorem IMSUMLorem IMSUMLorem IMSUMLorem IMSUMLorem IMSUMLorem IMSUM
-                </td>
-                <td  style="width: 25%">
-                    <form style="display:inline">
-                        <i class="material-icons">
-                            <input class="input_edit" type="submit" name="edit" value="edit">
-                        </i>
-                        <i class="material-icons">
-                            <input class="input_delee" type="submit" name="delete" value="delete">
-                        </i>
-
-
-                    </form>
-                </td>
-
-            </tr>
-
+            <?php foreach ($data['data'] as $row): ?> 
+                <tr class="active">
+                    <td style="width: 20%">
+                        <img style="height: 300px;width: 300px" src="http://<?= $_SERVER['HTTP_HOST'] ?>/<?= $row['photo'] ?>" alt="addphoto">
+                        <label class="text-center">Выбрать новое фото:
+                            <input  style="width: 300px" type="file" name="photo" class="btn btn-default" id="photo" required src="http://<?= $_SERVER['HTTP_HOST'] ?>/<?= $row['photo'] ?>" alt="addphoto">
+                        </label>
+                    </td>
+                    <td style="width: 30%">
+                        <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required style="width: 90%">
+                    </td>
+                    <td style="width: 40%">
+                        <textarea style="width: 90%; height: 300px;" form="editform<?= $row['id'] ?>" name="description" required><?= $row['description'] ?></textarea>
+                    </td>
+                    <td  style="width: 10%">
+                        <form id="editform<?= $row['id'] ?>" style="display:inline" method="post" action="admin/edit_option">
+                            <i class="material-icons">
+                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                <input class="input_edit" type="submit" name="edit" value="edit">
+                            </i>
+                        </form>
+                        <form style="display:inline" method="post" action="admin/delete_option">
+                            <i class="material-icons">
+                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                <input class="input_delete" type="submit" name="delete" value="delete">
+                            </i>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?> 
         </tbody>
     </table>
-    <i class="material-icons"><button class="btn_add">add</button></i>
+    <br>
+    <i id="i_btn" class="material-icons text-center" style="width: 100%;"><button class="btn_add">add</button></i>
+    <script>
+        $(document).ready(function () {
+            $('#i_btn').click(function () {
+                $(this).hide();
+            });
+        });
+    </script>
     <div id="form_add" style="display:none;">
-        <form>
-            New url photo:
-            <div>
-
-                <input type="text" name="newname">
-            </div>
-            New actor:
-            <div>
-
-                <input type="text" name="newname">
-            </div>
-
-            New description:
-            <div>
-
-                <textarea name="newcontent" style="max-width:600px;  max-height: 300px; width: 600px; height: 150px;"></textarea>
-            </div>
-            <div>
-                <input type="submit" value="add">
-            </div>
+        <form id="add_<?= $data['unit']; ?>" method="post" action="http://<?= $_SERVER['HTTP_HOST'] ?>/admin/add_<?= $data['unit']; ?>" enctype="multipart/form-data"></form>
+        <table class="table">
+            <tbody>
+                <tr class="info">
+                    <td style="width: 20%">
+                        <input form="add_<?= $data['unit']; ?>" style="width: 300px" type="file" name="photo" class="btn btn-default" required placeholder="Photo">
+                    </td>
+                    <td style="width: 30%">
+                        <input form="add_<?= $data['unit']; ?>" name="name" type="text" required style="width: 90%" placeholder="Name">
+                    </td>
+                    <td style="width: 40%">
+                        <textarea form="add_<?= $data['unit']; ?>" style="width: 90%; height: 100px;" name="description" required placeholder="Description"></textarea>
+                    </td>
+                    <td style="width: 10%">
+                        <input form="add_<?= $data['unit']; ?>" class="btn btn-default" type="submit" name="add_<?= $data['unit']; ?>" value="Add <?= $data['unit']; ?>">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         </form>
     </div>
 </div>

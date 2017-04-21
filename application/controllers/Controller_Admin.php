@@ -24,18 +24,18 @@ class Controller_Admin extends Controller {
     }
 
     public function action_actors() {
-        $data = $this->model->get_data();
+        $data = $this->model->get_actors();
         $this->view->generate('admin_list_view.php', 'template_admin_view.php', $data);
     }
 
     public function action_films() {
-        $data = $this->model->get_data();
+        $data = $this->model->get_films();
         $this->view->generate('admin_list_view.php', 'template_admin_view.php', $data);
     }
 
     public function action_edit_option() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->edit_option(filter_input(INPUT_POST, 'id'), filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'value'));
+        header('Location: /admin');
     }
 
     public function action_edit_film() {
@@ -49,8 +49,8 @@ class Controller_Admin extends Controller {
     }
 
     public function action_delete_option() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->delete_option(filter_input(INPUT_POST, 'id'));
+        header('Location: /admin');
     }
 
     public function action_delete_film() {
@@ -64,22 +64,18 @@ class Controller_Admin extends Controller {
     }
 
     public function action_add_option() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->add_option(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'value'));
+        header('Location: /admin');
     }
 
     public function action_add_film() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->add_film(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'description'));
+        header('Location: /admin/films');
     }
 
     public function action_add_actor() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->add_actor(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'description'));
+        header('Location: /admin/actors');
     }
 
-//   public function action_category() {
-//        $data = $this->model->get_data_category(filter_input(INPUT_GET, 'id'));
-//        $this->view->generate('category_view.php', null, $data);
-//    }
 }

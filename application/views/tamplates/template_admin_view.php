@@ -25,22 +25,15 @@
         <link href="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/css/css.css" rel="stylesheet" type="text/css"/>
         <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
         <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/js.js" type="text/javascript"></script>
-
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
-
             <header class="main-header">
-
                 <!-- Logo -->
-                <a href="http://fast-and-furious/application/views/admin_home_view.php" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>Fast</b>Furious</span>
+                <a href="/admin" class="logo">
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b>Admin </b>Fast Furious</span>
                 </a>
-
-
             </header>
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="main-sidebar">
@@ -51,91 +44,69 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="header">MAIN NAVIGATION</li>
-                        <li class="active treeview">
-                            <a href="http://fast-and-furious/application/views/admin_home_view.php">
-                                <i class="fa fa-dashboard"></i> <span>Home</span>
-
+                        <li class="header">NAVIGATION</li>
+                        <li class="<?= $data['active_options']; ?> treeview">
+                            <a href="/admin">
+                                <i class="fa fa-dashboard"></i> <span>Options</span>
                             </a>
-
                         </li>
-                        <li class="treeview">
-                            <a href="http://fast-and-furious/application/views/admin_film_view.php">
+                        <li class="<?= $data['active_films']; ?> treeview">
+                            <a href="/admin/films">
                                 <i class="fa fa-files-o"></i>
                                 <span>Films</span>
                             </a>
-
                         </li>
-                        <li>
-                            <a href="http://fast-and-furious/application/views/admin_actors_view.php">
+                        <li class="<?= $data['active_actors']; ?> treeview">
+                            <a href="/admin/actors">
                                 <i class="fa fa-th"></i>
                                 <span>Actors</span>
 
                             </a>
                         </li>
-
-
                     </ul>
                 </section>
                 <!-- /.sidebar -->
             </aside>
-
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        Home
+                    <h1 class="text-center">
+                        <?= $data['title']; ?>
                     </h1>
-
                 </section>
-
                 <section class="content">
                     <!-- content start -->
                     <?php include 'application/views/' . $content_view; ?>  
                     <!-- content end -->
                 </section>
             </div>
-            <!-- /.content-wrapper -->
-
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
 
                 </div>
-
             </footer>
-
-            <!-- Control Sidebar -->
-
         </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-
-    <!-- ./wrapper -->
-
-    <!-- jQuery 2.2.3 -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/bootstrap/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/app.min.js"></script>
-    <!-- Sparkline -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!-- jvectormap -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- ChartJS 1.0.1 -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/chartjs/Chart.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/pages/dashboard2.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/demo.js"></script>
-</body>
+        <!-- jQuery 2.2.3 -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/app.min.js"></script>
+        <!-- Sparkline -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!-- jvectormap -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- SlimScroll 1.3.0 -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- ChartJS 1.0.1 -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/plugins/chartjs/Chart.min.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/pages/dashboard2.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/application/views/tamplates/dist/js/demo.js"></script>
+    </body>
 </html>

@@ -20,7 +20,7 @@ class Model_Admin extends Model {
         $this->db->query("SET CHARSET utf8");
     }
 
-    //get options
+//get options
     public function get_data() {
         $query_options = "SELECT * FROM options;";
         $result_options = $this->db->query($query_options);
@@ -29,44 +29,48 @@ class Model_Admin extends Model {
             while ($option = $result_options->fetch_assoc()) {
                 $options[] = $option;
             }
-            return $options;
+            $data['data'] = $options;
+            $data['active_options'] = 'active';
+            $data['title'] = 'Options';
+            return $data;
         }
     }
 
     public function get_actors() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
+        $query_actors = "SELECT * FROM actors;";
+        $result_actors = $this->db->query($query_actors);
+        if ($result_actors) {
+            $actors = array();
+            while ($actor = $result_actors->fetch_assoc()) {
+                $actors[] = $actor;
             }
-            return $options;
+            $data['data'] = $actors;
+            $data['unit'] = 'actor';
+            $data['active_actors'] = 'active';
+            $data['title'] = 'Actors';
+            return $data;
         }
     }
 
     public function get_films() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
+        $query_films = "SELECT * FROM films;";
+        $result_films = $this->db->query($query_films);
+        if ($result_films) {
+            $films = array();
+            while ($film = $result_films->fetch_assoc()) {
+                $films[] = $film;
             }
-            return $options;
+            $data['data'] = $films;
+            $data['unit'] = 'film';
+            $data['active_films'] = 'active';
+            $data['title'] = 'Films';
+            return $data;
         }
     }
 
-    public function edit_option() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function edit_option($id, $name, $value) {
+        $query_update = "UPDATE `options` SET `name` = '$name', `value` = '$value' WHERE `options`.`id` = $id;";
+        $this->db->query($query_update);
     }
 
     public function edit_film() {
@@ -93,20 +97,14 @@ class Model_Admin extends Model {
         }
     }
 
-    public function delete_option() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function delete_option($id) {
+        $query_delete = "DELETE FROM `options` WHERE `options`.`id` = $id;";
+        $this->db->query($query_delete);
     }
 
     public function delete_film() {
-        $query_options = "SELECT * FROM options;";
+        $query_options = "SELECT * FROM options;
+";
         $result_options = $this->db->query($query_options);
         if ($result_options) {
             $options = array();
@@ -118,7 +116,8 @@ class Model_Admin extends Model {
     }
 
     public function delete_actor() {
-        $query_options = "SELECT * FROM options;";
+        $query_options = "SELECT * FROM options;
+";
         $result_options = $this->db->query($query_options);
         if ($result_options) {
             $options = array();
@@ -129,40 +128,23 @@ class Model_Admin extends Model {
         }
     }
 
-    public function add_option() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function add_option($name, $value) {
+        $query_add = "INSERT INTO `options` (`id`, `name`, `value`) VALUES (NULL, '$name', '$value');";
+        $this->db->query($query_add);
     }
 
-    public function add_film() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function add_film($name, $description) {
+        $uplPhoto = new uplImage('images/films', 'photo');
+        $photo = 'images/films/' . $uplPhoto->uploadImage();
+        $query_add = "INSERT INTO `films` (`id`, `name`, `photo`, `description`) VALUES (NULL, '$name', '$photo', '$description');";
+        $this->db->query($query_add);
     }
 
-    public function add_actor() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function add_actor($name, $description) {
+        $uplPhoto = new uplImage('images/films', 'photo');
+        $photo = 'images/films/' . $uplPhoto->uploadImage();
+        $query_add = "INSERT INTO `actors` (`id`, `name`, `photo`, `description`) VALUES (NULL, '$name', '$photo', '$description');";
+        $this->db->query($query_add);
     }
 
 }
