@@ -9,53 +9,55 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($data['data'] as $row): ?> 
-                <tr class="active">
-                    <td style="width: 30%">
-                        <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required style="width: 90%" >
-                    </td>
-                    <td style="width: 50%">
-                        <textarea form="editform<?= $row['id'] ?>" name="value" style="max-width:600px; max-height: 300px; width: 600px; height: 150px;"  required><?= $row['value'] ?></textarea>
-                    </td>
-                    <td style="width: 10%">
-                        <form id="editform<?= $row['id'] ?>" style="display:inline" method="post" action="admin/edit_option">
-                            <i class="material-icons">
-                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                <input class="input_edit" type="submit" name="edit" value="edit">
-                            </i>
-                        </form>
-                        <form style="display:inline" method="post" action="admin/delete_option">
-                            <i class="material-icons">
-                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                <input class="input_delete" type="submit" name="delete" value="delete">
-                            </i>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?> 
+	    <?php foreach ($data['data'] as $row): ?> 
+    	    <tr class="active">
+    		<td id="td01">
+		    <p><?= $row['name'] ?></p>
+    		    <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required class="nameoption"   >
+    		</td>
+    		<td id="td02">
+		    <p><?= $row['value'] ?></p>
+    		    <textarea form="editform<?= $row['id'] ?>" name="value"   required><?= $row['value'] ?></textarea>
+    		</td>
+    		<td id="td03">
+    		    <form id="editform<?= $row['id'] ?>"  class="editform" method="post" action="admin/edit_option">
+    			<i class="material-icons">
+    			    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+    			    <input class="input_edit" type="submit" name="edit" value="edit">
+    			</i>
+    		    </form>
+    		    <form class="editform" method="post" action="admin/delete_option">
+    			<i class="material-icons">
+    			    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+    			    <input class="input_delete" type="submit" name="delete" value="delete">
+    			</i>
+    		    </form>
+    		</td>
+    	    </tr>
+	    <?php endforeach; ?> 
         </tbody>
     </table>
     <br>
-    <i id="i_btn" class="material-icons text-center" style="width: 100%;"><button class="btn_add">add</button></i>
+    <i id="i_btn" class="material-icons text-center""><button class="btn_add">add</button></i>
     <script>
-        $(document).ready(function () {
-            $('#i_btn').click(function () {
-                $(this).hide();
-            });
-        });
+	$(document).ready(function () {
+	    $('#i_btn').click(function () {
+		$(this).hide();
+	    });
+	});
     </script>
-    <div id="form_add" style="display:none;">
+    <div id="form_add" >
         <form id="add_form" method="post" action="admin/add_option">
             <table class="table">
                 <tbody>
                     <tr class="info">
-                        <td style="width: 30%">
-                            <input name="name" type="text" required style="width: 90%" placeholder="Name of option">
+                        <td >
+                            <input name="name"   type="text" required  placeholder="Name of option">
                         </td>
-                        <td style="width: 50%">
-                            <textarea style="width: 600px; height: 100px;" name="value" required placeholder="Value of option"></textarea>
+                        <td>
+                            <textarea  name="value" required placeholder="Value of option"></textarea>
                         </td>
-                        <td style="width: 10%">
+                        <td>
                             <input class="btn btn-default" type="submit" name="add_option" value="Add option">
                         </td>
                     </tr>
