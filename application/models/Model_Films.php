@@ -27,11 +27,7 @@ class Model_Films extends Model {
             $main.= header('Location: /films?id=1');
         } else {
             while($res = $result->fetch_assoc()){
-                $main .= '<div>'; 
-                $main .= '<h1>'.$res[name].'</h1><br/>'; 
-                $main .= '<img src="'.$res[photo].'" alt="'.$res[name].'" title="'.$res[name].'" width="300" style="float: left;margin: 10px 40px 40px 0;"><br/>';
-                $main .= $res[description].'<br/>'; 
-                $main .= '</div>';
+                $main = serialize($res);
             }
         }
         return $main;
