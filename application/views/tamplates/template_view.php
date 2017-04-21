@@ -5,13 +5,13 @@ $actors = unserialize($menu->getActors());
 $linckActor = '';
 foreach ($actors as $val){
     $val = unserialize($val);
-    $linckActor .= '<li><a class="heder_menu" href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
+    $linckActor .= '<li><a style="padding: 8px;" class="heder_menu" href="http://'.$_SERVER[HTTP_HOST].'/actors?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
 }
 $films = unserialize($menu->getFilms());
 $linckFilms = '';
 foreach ($films as $val){
     $val = unserialize($val);
-    $linckFilms .= '<li><a href="http://'.$_SERVER[HTTP_HOST].'/films?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
+    $linckFilms .= '<li><a style="padding: 8px;" href="http://'.$_SERVER[HTTP_HOST].'/films?id='.$val[id].'&#pasha-tak-skazal">'.$val[name].'</a></li>';
 }
 ?>
 <!DOCTYPE html>
