@@ -39,13 +39,13 @@ class Controller_Admin extends Controller {
     }
 
     public function action_edit_film() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->edit_film(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'description'), filter_input(INPUT_POST, 'id'), filter_input(INPUT_POST, 'old_photo'));
+        //header('Location: /admin/films');
+        $this->view->generate('admin_list_view.php', 'template_admin_view.php', $data);
     }
 
     public function action_edit_actor() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+
     }
 
     public function action_delete_option() {
@@ -54,13 +54,13 @@ class Controller_Admin extends Controller {
     }
 
     public function action_delete_film() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->delete_film(filter_input(INPUT_POST, 'id'));
+        header('Location: /admin/films');
     }
 
     public function action_delete_actor() {
-        $data = $this->model->get_data();
-        $this->view->generate('admin_edit_view.php', 'template_admin_view.php', $data);
+        $this->model->delete_actor(filter_input(INPUT_POST, 'id'));
+        header('Location: /admin/films');
     }
 
     public function action_add_option() {

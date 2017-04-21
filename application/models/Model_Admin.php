@@ -73,28 +73,19 @@ class Model_Admin extends Model {
         $this->db->query($query_update);
     }
 
-    public function edit_film() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
+    public function edit_film($name, $description, $id, $old_photo) {
+        if ($_FILES['photo']['size'] === 0) {
+            $photo = $old_photo;
+        } else {
+            $uplPhoto = new uplImage('images/films', 'photo');
+            $photo = 'images/films/' . $uplPhoto->uploadImage();
         }
+        $query_edit = "UPDATE `fast_and_furious`.`films` SET `name` = '$name', `photo` = '$photo', `description` = '$description' WHERE `films`.`id` = $id;";
+        $this->db->query($query_edit);
     }
 
     public function edit_actor() {
-        $query_options = "SELECT * FROM options;";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+ 
     }
 
     public function delete_option($id) {
@@ -102,30 +93,15 @@ class Model_Admin extends Model {
         $this->db->query($query_delete);
     }
 
-    public function delete_film() {
-        $query_options = "SELECT * FROM options;
-";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function delete_film($id) {
+        $query_delete = "DELETE FROM `films` WHERE `films`.`id` = $id;";
+        $this->db->query($query_delete);
+    
     }
 
-    public function delete_actor() {
-        $query_options = "SELECT * FROM options;
-";
-        $result_options = $this->db->query($query_options);
-        if ($result_options) {
-            $options = array();
-            while ($option = $result_options->fetch_assoc()) {
-                $options[] = $option;
-            }
-            return $options;
-        }
+    public function delete_actor($id) {
+        $query_delete = "DELETE FROM `actors` WHERE `actors`.`id` = $id;";
+        $this->db->query($query_delete);
     }
 
     public function add_option($name, $value) {

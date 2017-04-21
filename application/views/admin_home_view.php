@@ -14,10 +14,10 @@
                     <td style="width: 30%">
                         <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required style="width: 90%" >
                     </td>
-                    <td style="width: 50%">
+                    <td style="width: 40%">
                         <textarea form="editform<?= $row['id'] ?>" name="value" style="max-width:600px; max-height: 300px; width: 600px; height: 150px;"  required><?= $row['value'] ?></textarea>
                     </td>
-                    <td style="width: 10%">
+                    <td style="width: 20%">
                         <form id="editform<?= $row['id'] ?>" style="display:inline" method="post" action="admin/edit_option">
                             <i class="material-icons">
                                 <input type="hidden" name="id" value="<?= $row['id'] ?>">

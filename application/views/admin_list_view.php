@@ -15,23 +15,24 @@
                     <td style="width: 20%">
                         <img style="height: 300px;width: 300px" src="http://<?= $_SERVER['HTTP_HOST'] ?>/<?= $row['photo'] ?>" alt="addphoto">
                         <label class="text-center">Выбрать новое фото:
-                            <input  style="width: 300px" type="file" name="photo" class="btn btn-default" id="photo" required src="http://<?= $_SERVER['HTTP_HOST'] ?>/<?= $row['photo'] ?>" alt="addphoto">
+                            <input form="editform<?= $row['id'] ?>"  style="width: 300px" type="file" name="photo" class="btn btn-default">
                         </label>
                     </td>
                     <td style="width: 30%">
-                        <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required style="width: 90%">
+                        <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" style="width: 90%" required>
                     </td>
-                    <td style="width: 40%">
+                    <td style="width: 30%">
                         <textarea style="width: 90%; height: 300px;" form="editform<?= $row['id'] ?>" name="description" required><?= $row['description'] ?></textarea>
                     </td>
-                    <td  style="width: 10%">
-                        <form id="editform<?= $row['id'] ?>" style="display:inline" method="post" action="admin/edit_option">
+                    <td  style="width: 20%">
+                        <form id="editform<?= $row['id'] ?>" style="display:inline" method="post" action="http://<?= $_SERVER['HTTP_HOST'] ?>/admin/edit_<?= $data['unit']; ?>" enctype="multipart/form-data">
                             <i class="material-icons">
+                                <input type="hidden" name="old_photo" value="<?= $row['photo'] ?>">
                                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <input class="input_edit" type="submit" name="edit" value="edit">
                             </i>
                         </form>
-                        <form style="display:inline" method="post" action="admin/delete_option">
+                        <form style="display:inline" method="post" action="http://<?= $_SERVER['HTTP_HOST'] ?>/admin/delete_<?= $data['unit']; ?>">
                             <i class="material-icons">
                                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <input class="input_delete" type="submit" name="delete" value="delete">
