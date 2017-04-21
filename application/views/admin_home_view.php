@@ -9,7 +9,6 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
             <?php foreach ($data['data'] as $row): ?> 
                 <tr class="active">
                     <td style="width: 30%">
@@ -34,55 +33,27 @@
                     </td>
                 </tr>
             <?php endforeach; ?> 
-=======
-	    <?php foreach ($data['data'] as $row): ?> 
-    	    <tr class="active">
-    		<td id="td01">
-		    <p><?= $row['name'] ?></p>
-    		    <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required class="nameoption"   >
-    		</td>
-    		<td id="td02">
-		    <p><?= $row['value'] ?></p>
-    		    <textarea form="editform<?= $row['id'] ?>" name="value"   required><?= $row['value'] ?></textarea>
-    		</td>
-    		<td id="td03">
-    		    <form id="editform<?= $row['id'] ?>"  class="editform" method="post" action="admin/edit_option">
-    			<i class="material-icons">
-    			    <input type="hidden" name="id" value="<?= $row['id'] ?>">
-    			    <input class="input_edit" type="submit" name="edit" value="edit">
-    			</i>
-    		    </form>
-    		    <form class="editform" method="post" action="admin/delete_option">
-    			<i class="material-icons">
-    			    <input type="hidden" name="id" value="<?= $row['id'] ?>">
-    			    <input class="input_delete" type="submit" name="delete" value="delete">
-    			</i>
-    		    </form>
-    		</td>
-    	    </tr>
-	    <?php endforeach; ?> 
->>>>>>> e794d581ff7d96875587c19a99147e455f411ad3
         </tbody>
     </table>
     <br>
-    <i id="i_btn" class="material-icons text-center""><button class="btn_add">add</button></i>
+    <i id="i_btn" class="material-icons text-center" style="width: 100%;"><button class="btn_add">add</button></i>
     <script>
-	$(document).ready(function () {
-	    $('#i_btn').click(function () {
-		$(this).hide();
-	    });
-	});
+        $(document).ready(function () {
+            $('#i_btn').click(function () {
+                $(this).hide();
+            });
+        });
     </script>
-    <div id="form_add" >
+    <div id="form_add" style="display:none;">
         <form id="add_form" method="post" action="admin/add_option">
-            <table class="table">
+            <table class="table"  style="width: 1100px">
                 <tbody>
-                    <tr class="info">
-                        <td >
-                            <input name="name"   type="text" required  placeholder="Name of option">
+                    <tr class="info" style="width: 100%">
+                        <td>
+                            <input name="name" type="text" required style="width: 250px" placeholder="Name of option">
                         </td>
                         <td>
-                            <textarea  name="value" required placeholder="Value of option"></textarea>
+                            <textarea style="width: 500px; height: 100px;" name="value" required placeholder="Value of option"></textarea>
                         </td>
                         <td>
                             <input class="btn btn-default" type="submit" name="add_option" value="Add option">

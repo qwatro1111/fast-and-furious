@@ -40,12 +40,12 @@ class Controller_Admin extends Controller {
 
     public function action_edit_film() {
         $this->model->edit_film(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'description'), filter_input(INPUT_POST, 'id'), filter_input(INPUT_POST, 'old_photo'));
-        //header('Location: /admin/films');
-        $this->view->generate('admin_list_view.php', 'template_admin_view.php', $data);
+        header('Location: /admin/films');
     }
 
     public function action_edit_actor() {
-
+        $this->model->edit_actor(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'description'), filter_input(INPUT_POST, 'id'), filter_input(INPUT_POST, 'old_photo'));
+        header('Location: /admin/actors');
     }
 
     public function action_delete_option() {

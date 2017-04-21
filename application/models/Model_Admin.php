@@ -84,8 +84,15 @@ class Model_Admin extends Model {
         $this->db->query($query_edit);
     }
 
-    public function edit_actor() {
- 
+    public function edit_actor($name, $description, $id, $old_photo) {
+        if ($_FILES['photo']['size'] === 0) {
+            $photo = $old_photo;
+        } else {
+            $uplPhoto = new uplImage('images/actors', 'photo');
+            $photo = 'images/actors/' . $uplPhoto->uploadImage();
+        }
+        $query_edit = "UPDATE `fast_and_furious`.`actors` SET `name` = '$name', `photo` = '$photo', `description` = '$description' WHERE `films`.`id` = $id;";
+        $this->db->query($query_edit);
     }
 
     public function delete_option($id) {
@@ -96,7 +103,6 @@ class Model_Admin extends Model {
     public function delete_film($id) {
         $query_delete = "DELETE FROM `films` WHERE `films`.`id` = $id;";
         $this->db->query($query_delete);
-    
     }
 
     public function delete_actor($id) {
@@ -117,8 +123,8 @@ class Model_Admin extends Model {
     }
 
     public function add_actor($name, $description) {
-        $uplPhoto = new uplImage('images/films', 'photo');
-        $photo = 'images/films/' . $uplPhoto->uploadImage();
+        $uplPhoto = new uplImage('images/actors', 'photo');
+        $photo = 'images/actors/' . $uplPhoto->uploadImage();
         $query_add = "INSERT INTO `actors` (`id`, `name`, `photo`, `description`) VALUES (NULL, '$name', '$photo', '$description');";
         $this->db->query($query_add);
     }
