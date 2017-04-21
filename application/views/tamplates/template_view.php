@@ -72,16 +72,28 @@ $data = unserialize($data);
 		<div class="js-sticky">
 			<div class="fh5co-main-nav">
 				<div class="container-fluid">
-					<div class="fh5co-menu-1">
-						<a href="#" data-nav-section="films">Films</a>
-					</div>
-					<div class="fh5co-logo">
-						<a href="#" data-nav-section="home">HOME</a>
-					</div>
-					<div class="fh5co-menu-2">
-						<a href="#" data-nav-section="actors">Actors</a>
-					</div>
-				</div>
+                                <div class="fh5co-menu-1">
+                                    <div class="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Films <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Action</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="fh5co-logo">
+                                    <a href="#" data-nav-section="home">HOME</a>
+                                </div>
+                                <div class="fh5co-menu-2">
+                                    <div class="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Actors <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Action</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 				
 			</div>
 		</div>
