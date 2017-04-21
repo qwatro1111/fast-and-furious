@@ -54,7 +54,7 @@ foreach ($films as $val){
 
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
-
+        <link type="image/x-icon" rel="shortcut icon" href="/images/favicon.gif" />
 	</head>
 	<body>
 
