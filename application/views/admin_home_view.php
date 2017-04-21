@@ -12,9 +12,11 @@
 	    <?php foreach ($data['data'] as $row): ?> 
     	    <tr class="active">
     		<td id="td01">
+		    <p><?= $row['name'] ?></p>
     		    <input form="editform<?= $row['id'] ?>" name="name" type="text" value="<?= $row['name'] ?>" required class="nameoption"   >
     		</td>
     		<td id="td02">
+		    <p><?= $row['value'] ?></p>
     		    <textarea form="editform<?= $row['id'] ?>" name="value"   required><?= $row['value'] ?></textarea>
     		</td>
     		<td id="td03">
